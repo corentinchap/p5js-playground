@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joyeux Anniversaire</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <script src="js/p5.js"></script>
+  <script src="js/sketch.js"></script>
+</head>
+
+<body>
+  <style>
+    body{
+      overflow: hidden;
+    }
+    header{
+      background: dodgerblue;
+      display: flex;
+      justify-content: flex-end;
+      height: 30px;
+    }
+    select{
+      width: 40%;
+      
+    }
+    #p5Container{
+      height: calc(100vh - 30px);
+    }
+  </style>
+  <header>
+    <button onclick="document.body.requestFullscreen()">fullscreen</button>
+    <input checked type="checkbox" onclick="toggleChemtrails()">Chemtrails</input>
+    <select id="faceSelect" onchange="changeFace()">
+      <option value="coco">Cocal</option>
+      <option value="cocalmilitaire">Cocal militaire</option>
+      <option value="elise">Elise</option>
+      <option value="noe">Noé</option>
+      <option value="adrien">Adrien</option>
+      <option value="jenn">Jennifer</option>
+      <option value="manu">Manu</option>
+      <option value="petitjoel">Petit Joel</option>
+      <option value="sam">Sam</option>
+      <option value="simon">Simon</option>
+      <option value="sebastien">Sébastien</option>
+      <option value="shibu">Shibu</option>
+      <option value="zelie">Zélie</option>
+      <option value="aless">Aless</option>
+      <option value="johan">Johan</option>
+      <option value="alban">Alban</option>
+      <option value="uel">Uel</option>
+      <option value="vanessa">Vanessa</option>
+    </select>
+   
+  </header>
+ 
+  <div id="p5Container">
+
+  </div>
+</body>
+
+</html>

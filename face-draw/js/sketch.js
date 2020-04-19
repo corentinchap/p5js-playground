@@ -1,22 +1,25 @@
 let currentFace;
+let isAudioPlaying = false;
 
-(function(){
-  var audio = new Audio('jonathan.mp3');
-  audio.play();
-})()
+function startSong() {
+  if(!isAudioPlaying){
+    var audio = new Audio('jonathan.mp3');
+    audio.play();
+    isAudioPlaying = true;
+  }
+}
 
 function setup() {
   // put setup code here
   let canvas = createCanvas(window.innerWidth, window.innerHeight);
   canvas.parent('p5Container');
-  currentFace = loadImage('coco.png');
+  currentFace = loadImage("../assets/faces/" + 'coco.png');
 }
 
 
 function changeFace(){
   let face = document.getElementById('faceSelect').value;
-  console.log(face);
-  currentFace = loadImage(face + '.png');
+  currentFace = loadImage("../assets/faces/" + face + '.png');
 }
 
 
