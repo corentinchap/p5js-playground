@@ -1,5 +1,8 @@
 
 let randomVal;
+let positions = [];
+let ncol = 6;
+let nline = 6;
 
 function setup() {
   // put setup code here
@@ -11,7 +14,22 @@ function setup() {
   currentFace = loadImage("../assets/faces/" + 'coco.png');
   randomVal = random(0.1,0.8);
   
-  
+ 
+  for (var i = 0; i < ncol; i++) { 
+    positions[i] = []; 
+    for(var j=0; j < nline;j++){
+      positions[i][j] = [];
+    }
+  }
+
+  document.getElementById('col').addEventListener("change",(e)=>{
+    ncol = e.target.value
+    document.getElementById('currentCol').innerText = e.target.value;
+  })
+  document.getElementById('row').addEventListener("change",(e)=>{
+    nline = e.target.value
+    document.getElementById('currentRow').innerText = e.target.value;
+  })
 }
 
 
@@ -19,28 +37,30 @@ function setup() {
 function changeFace(){
   let face = document.getElementById('faceSelect').value;
   currentFace = loadImage("../assets/faces/" + face + '.png');
-  calcOffset();
+  //calcOffset();
 }
 
 
 function draw() {
   background(255)
-  let ncol = 6;
-  let nline = 6;
-  let positions = [];
+
   for(let i=0;i < nline; i++){
-    for(let y=0; y < ncol;y++){
-      positions.push(
-        {
-          x: canvasWidth / (ncol - i),
-          y: canvasHeight / (nline - y)
-        }
+    for(let j=0; j < ncol;j++){
+      // positions[i][j] = {
+      //   x: canvasWidth / 50*(ncol - i), 
+      //   y: canvasHeight / 50*(nline - j)
+      // };
+   
+      // console.log(canvasWidth / ncol * j)
+      // console.log(canvasHeight / nline * i)
+      //console.log(positions[i][j]);
+      image(currentFace, 
+        canvasWidth / ncol * j, 
+        canvasHeight / nline * i
       )
-      image(currentFace, canvasWidth / (ncol - i),canvasHeight / (nline - y))
     }
-  }
-  console.log(positions)  
-  
+  } 
+  //noLoop()
 }
 
 function drawEllipse(x,y,d){
