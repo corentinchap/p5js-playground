@@ -2,12 +2,14 @@ class Face {
 
     xoff1 = 0;
     xoff2 = 1000;  
-    increment = 0;
+    increment;
+    offset;
 
-    constructor(x,y,currentImage, increment){
+    constructor(x,y,currentImage, increment, offset){
         this.increment = parseFloat(increment);
         this.x = x;
         this.y = y;
+        this.offset = offset || 0;
         this.currentImage = currentImage;
  
     }
@@ -25,18 +27,14 @@ class Face {
     }
 
     move(){
-        this.x = map(noise(this.xoff1),0,1,0,container.clientWidth);
-        this.y = map(noise(this.xoff2),0,1,0,container.clientWidth);
+        this.x = map(noise(this.xoff1+this.offset),0,1,0,container.clientWidth);
+        this.y = map(noise(this.xoff2),0,1,0,container.clientHeight);
 
         this.xoff1 += this.increment;
         this.xoff2 += this.increment;
     }
     show(){
-        colorMode(HSB, 255);
-        let c = color(0, 126, 255);
-        
-        let value = saturation(c); // Sets 'value' to 126
-        fill(value);
+        console.log(this)
         image(this.currentImage,this.x,this.y);
     }
 }

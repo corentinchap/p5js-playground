@@ -1,25 +1,34 @@
 let currentFace;
 let currentImage;
-let increment = 0.02;
+let increment = 0.005;
 let enableChemtrails = true;
-let container;
+let container;  // shared with face.js
+let copains = [];
 
 function preload(){
-  container = document.getElementById('p5Container');
   currentImage = loadImage("../assets/faces/coco.png");
-  currentFace = new Face(
-    random(container.clientWidth),
-    random(container.clientHeight),
-    currentImage,
-    increment);
 }
 
 function setup() {
   // put setup code here
+  container = {
+    clientHeight: window.innerHeight - document.getElementsByTagName('header')[0].clientHeight,
+    clientWidth: window.innerWidth
+  }
+  console.log(container)
+
   let canvas = createCanvas(container.clientWidth, container.clientHeight);
   canvas.parent('p5Container');
-  document.getElementById('increment').addEventListener('change',updateIncrement)
-  document.getElementById('noisedetail').addEventListener('change',updateDetail)
+
+  
+  document.getElementById('increment').addEventListener('change',updateIncrement);
+  document.getElementById('noisedetail').addEventListener('change',updateDetail);
+  
+  copains.push(new Face(
+    random(container.clientWidth),
+    random(container.clientHeight),
+    currentImage,
+    increment));
 }
 
 function updateIncrement(){
@@ -35,13 +44,14 @@ function updateDetail(){
 }
 
 
-function changeFace(){
+function addFace(){
   let face = document.getElementById('faceSelect').value;
-  currentFace = new Face(
+  copains.push(new Face(
     random(container.clientWidth),
     random(container.clientWidth),
     loadImage("../assets/faces/"+face+".png"),
-    increment);
+    increment,
+    random(1000,10000)));
 }
 
 function mousePressed(){
@@ -57,7 +67,9 @@ function draw() {
   if(!enableChemtrails)
     background(255);
   
-  currentFace.move();
-  currentFace.show();
+ copains.forEach(face => {
+  face.move();
+  face.show();
+ });
   
 }

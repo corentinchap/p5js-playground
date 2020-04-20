@@ -19,7 +19,7 @@
 <body>
   <style>
     body{
-      overflow: hidden;
+      
     }
     header{
       background: dodgerblue;
@@ -42,14 +42,14 @@
     </div>
     <div class="sliderContainer">
       Incrémentation : 
-      <input type="range" min="0.005" max="0.1" value="0.02" step="0.001" id="increment">
+      <input type="range" min="0.005" max="0.1" value="0.05" step="0.001" id="increment">
       <span id="currentIncrement">0.02</span> 
 
       NoiseDetail : 
       <input type="range" min="0.0" max="20" value="4" step="1" id="noisedetail">
       <span id="currentNoiseDetail">4</span> 
     </div>
-    <select id="faceSelect" onchange="changeFace()">
+    <select id="faceSelect" onchange="addFace()">
       <option value="coco">Cocal</option>
       <option value="cocalmilitaire">Cocal militaire</option>
       <option value="elise">Elise</option>
