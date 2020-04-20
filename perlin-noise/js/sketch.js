@@ -2,21 +2,21 @@ let currentFace;
 let currentImage;
 let increment = 0.02;
 let enableChemtrails = true;
-
+let container;
 
 function preload(){
-  let container = document.getElementById('p5Container');
+  container = document.getElementById('p5Container');
   currentImage = loadImage("../assets/faces/coco.png");
   currentFace = new Face(
-    random(container.innerWidth),
-    random(container.innerHeight),
+    random(container.clientWidth),
+    random(container.clientHeight),
     currentImage,
     increment);
 }
 
 function setup() {
   // put setup code here
-  let canvas = createCanvas(window.innerWidth, window.innerHeight);
+  let canvas = createCanvas(container.clientWidth, container.clientHeight);
   canvas.parent('p5Container');
   document.getElementById('increment').addEventListener('change',updateIncrement)
   document.getElementById('noisedetail').addEventListener('change',updateDetail)
@@ -38,8 +38,8 @@ function updateDetail(){
 function changeFace(){
   let face = document.getElementById('faceSelect').value;
   currentFace = new Face(
-    random(canvas.innerWidth),
-    random(canvas.innerHeight),
+    random(container.clientWidth),
+    random(container.clientWidth),
     loadImage("../assets/faces/"+face+".png"),
     increment);
 }

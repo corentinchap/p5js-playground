@@ -25,8 +25,8 @@ class Face {
     }
 
     move(){
-        this.x = map(noise(this.xoff1),0,1,0,canvas.width);
-        this.y = map(noise(this.xoff2),0,1,0,canvas.height);
+        this.x = map(noise(this.xoff1),0,1,0,container.clientWidth);
+        this.y = map(noise(this.xoff2),0,1,0,container.clientWidth);
 
         this.xoff1 += this.increment;
         this.xoff2 += this.increment;
