@@ -11,11 +11,12 @@ let a2_v = 0;
 let hidePendulum = true;
 let faceSizeFactor1 = 1;
 let faceSizeFactor2 = 1;
+let randomColor = false;
 
 function setup() {
   pixelDensity(1);
-  a1 = PI/4;
-  a2 = PI/4;
+  a1 = PI/2;
+  a2 = PI/2;
   // put setup code here
   canvasWidth = document.getElementById('p5Container').offsetWidth;
   canvasHeight = document.getElementById('p5Container').offsetHeight;
@@ -61,6 +62,9 @@ function registerControls(){
   document.getElementById('faceSizeFactor2').addEventListener("change",(e)=>{
     faceSizeFactor2 = e.target.value
     document.getElementById('faceSizeFactor2_val').innerText = e.target.value;
+  })
+  document.getElementById('randomColor').addEventListener("change",(e)=>{
+    randomColor = !randomColor
   })
 }
 
@@ -124,10 +128,17 @@ function draw() {
   let face1Height = currentFace.height* faceSizeFactor1;
   let face2Width = currentFace.width* faceSizeFactor2;
   let face2Height = currentFace.height* faceSizeFactor2;
-
+  //colorMode(HSB, 255);
   extraCanvas.push();
   extraCanvas.translate(canvasWidth/2, canvasHeight/2);
+  if(randomColor){
+    extraCanvas.tint(color(random(255), random(255), random(255)))
+  }
   extraCanvas.image(currentFace,x1-face1Width/4,y1-face1Height/4,face1Width,face1Height);
+  
+  if(randomColor){
+    extraCanvas.tint(color(random(255), random(255), random(255)))
+  }
   extraCanvas.image(currentFace,x2-face2Width/2,y2-face2Height/2, face2Width,face2Height);
   extraCanvas.pop();
 
