@@ -134,7 +134,7 @@ function draw() {
   if(randomColor){
     extraCanvas.tint(color(random(255), random(255), random(255)))
   }
-  extraCanvas.image(currentFace,x1-face1Width/4,y1-face1Height/4,face1Width,face1Height);
+  extraCanvas.image(currentFace,x1-face1Width/2,y1-face1Height/2,face1Width,face1Height);
   
   if(randomColor){
     extraCanvas.tint(color(random(255), random(255), random(255)))
