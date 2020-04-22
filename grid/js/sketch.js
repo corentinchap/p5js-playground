@@ -1,8 +1,8 @@
 
 let randomVal;
 let positions = [];
-let ncol = 6;
-let nline = 6;
+let ncol =30;
+let nline = 12;
 
 function setup() {
   // put setup code here

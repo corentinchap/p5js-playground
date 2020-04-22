@@ -37,13 +37,12 @@
   </style>
   <header>
     <button onclick="document.body.requestFullscreen()">fullscreen</button>
-    <input checked type="checkbox" onclick="toggleChemtrails()">Chemtrails</input>
     Nombre de colonnes : 
-    <input type="range" min="1" max="150" value="6" step="1" id="col">
-    <span id="currentCol">0.02</span> 
+    <input type="range" min="1" max="150" value="30" step="1" id="col">
+    <span id="currentCol">30</span> 
     Nombre de lignes : 
-    <input type="range" min="1" max="150" value="6" step="1" id="row">
-    <span id="currentRow">0.02</span> 
+    <input type="range" min="1" max="150" value="12" step="1" id="row">
+    <span id="currentRow">12</span> 
 
     <select id="faceSelect" onchange="changeFace()">
       <option value="coco">Cocal</option>

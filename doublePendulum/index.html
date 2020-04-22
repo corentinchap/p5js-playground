@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La double Pendule</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <script src="js/p5.js"></script>
+  <script src="js/face.js"></script>
+  <script src="js/sketch.js"></script>
+</head>
+
+<body>
+  <style>
+    body{
+      overflow: hidden;
+    }
+    header{
+      background: dodgerblue;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      height: 80px;
+
+    }
+    .control{
+      width: 200px;
+
+    }    
+    #p5Container{
+      height: calc(100vh - 80px);
+    }
+    @media screen and (max-width: 768px){
+      header{
+        height: 300px;
+      }
+      #p5Container{
+      height: calc(100vh - 300px);
+      }
+      .control{
+        width: 50%;
+      }
+    }
+  </style>
+  <header>
+    
+    <div class="control">
+      longueur_pendule 1 : 
+      <input type="range" min="1" max="500" value="125" step="1" id="r1">
+      <span id="r1_val">125</span> 
+    </div>
+
+    <div class="control">
+      longueur_pendule 2 : 
+      <input type="range" min="1" max="500" value="125" step="1" id="r2">
+      <span id="r2_val">125</span> 
+    </div>
+
+    <div class="control">
+      Gravité : 
+      <input type="range" min="0.1" max="20" value="1" step="1" id="g">
+      <span id="g_val">1</span> 
+    </div>
+  
+    <div class="control">
+      Masse 1 : 
+      <input type="range" min="1" max="20" value="1" step="1" id="m1">
+      <span id="m1_val">10</span> 
+    </div>
+
+    <div class="control">
+      Masse 2 : 
+      <input type="range" min="1" max="20" value="1" step="1" id="m2">
+      <span id="m2_val">10</span> 
+    </div>
+    <div class="control">
+      taille (%) tete 1 : 
+      <input type="range" min="0.01" max="2" value="1" step="0.01" id="faceSizeFactor1">
+      <span id="faceSizeFactor1_val">1</span> 
+    </div>
+    <div class="control">
+      taille (%) tete 2 : 
+      <input type="range" min="0.01" max="2" value="1" step="0.01" id="faceSizeFactor2">
+      <span id="faceSizeFactor2_val">1</span> 
+    </div>
+    <div class="control">
+      <button onclick="clearCanvas()">nettoyer</button>
+    </div>
+    <div class="control">
+      <button onclick="saveCanvas(extraCanvas)">enregistrer</button>
+    </div>
+    <div class="control">
+      Cacher pendule : 
+      <input type="checkbox" checked id="show_pendule">
+    </div>
+    <div class="control">
+      <select id="faceSelect" onchange="changeFace()">
+        <option value="coco">Cocal</option>
+        <option value="cocalmilitaire">Cocal militaire</option>
+        <option value="elise">Elise</option>
+        <option value="noe">Noé</option>
+        <option value="adrien">Adrien</option>
+        <option value="jenn">Jennifer</option>
+        <option value="manu">Manu</option>
+        <option value="petitjoel">Petit Joel</option>
+        <option value="sam">Sam</option>
+        <option value="simon">Simon</option>
+        <option value="sebastien">Sébastien</option>
+        <option value="shibu">Shibu</option>
+        <option value="zelie">Zélie</option>
+        <option value="aless">Aless</option>
+        <option value="johan">Johan</option>
+        <option value="alban">Alban</option>
+        <option value="uel">Uel</option>
+        <option value="vanessa">Vanessa</option>
+        <option value="jonathan">Jonathan</option>
+      </select>
+    </div>
+   
+   
+  </header>
+ 
+  <div id="p5Container">
+
+  </div>
+</body>
+
+</html>
